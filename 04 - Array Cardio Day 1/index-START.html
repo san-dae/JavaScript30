@@ -39,27 +39,157 @@
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 
+    function birthYear(inventor)
+    {
+      let yr = inventor.year;    
+        if (yr >=1500 && yr <1601)
+        {
+          return true;
+        }
+    }
+
+    function filterInventors()
+    {
+      arr1 = inventors.filter(birthYear);
+      console.log(arr1);
+    }
+
+    filterInventors();
+
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+
+    function firstLastNames()
+    {
+      arr2 = inventors.map(inventor => inventor.first + " " + inventor.last);
+
+      console.log(arr2);
+    }
+
+    firstLastNames();
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
 
+    function compare(a,b)
+    {
+      if (a.year < b.year) 
+      {
+        return 1;
+      }
+      else
+      {
+        return -1;
+      }
+    }
+
+    function sortInnventors()
+    {
+      let ordered = inventors.sort(compare);
+      console.log(ordered);
+    }
+
+    sortInnventors();
+
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
 
+    function addYears()
+    {
+      value = inventors.reduce((sum,item) => sum += (item.passed - item.year), 0);
+      console.log(value);
+    }
+
+    addYears();
+
     // 5. Sort the inventors by years lived
 
+    function compare2 (a,b)
+    {
+      if ((a.passed - a.year) > (b.passed - b.year))
+    {
+      return 1;
+    }
+
+    else {
+      return -1;
+    }
+    }
+
+    function yearsLived ()
+    {
+      arr5 = inventors.sort(compare2);
+
+      console.log(arr5);
+    }
+
+    yearsLived();
+
+
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-    // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+    https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+    // const category = document.querySelector('.mw-category');
+    // const links = Array.from(category.querySelectorAll('a'));
+    // const de = links.map(link => link.textContent);
+
+    // console.log(de);
+
+    // let arr6 = links.filter();
+
+    
 
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
+    function compare3(a,b)
+    {
+      nameA = a.last.toLowerCase();
+      nameB = b.last.toLowerCase();
+      
+      if (nameA[0] < nameB[0])
+    {
+      return 1;
+    }
+    else{
+      return -1;
+    }
+    }
+
+    function sortAlpha()
+    {
+      arr7 = inventors.sort(compare3);
+
+      console.log(arr7);
+    }
+
+    sortAlpha();
+
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+    function sumInstances()
+    {
+      let arr8 = {};
+      for (let dat of data)
+      {
+        if (arr8[dat])
+        {
+          arr8[dat]++;
+        }
+        else
+        {
+          arr8[dat] = 1;
+        }
+      }
+
+      console.log(arr8);
+
+      
+    }
+
+    sumInstances();
 
   </script>
 </body>
